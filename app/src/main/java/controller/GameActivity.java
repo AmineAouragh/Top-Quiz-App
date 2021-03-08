@@ -111,7 +111,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     displayQuestion(mCurrentQuestion);
                 }
             }
-        }, 2000); // LENGTH_SHORT is usually 2 second long
+        }, 1500); // LENGTH_SHORT is usually 1.5 second long
 
     }
 
@@ -126,7 +126,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         builder.setTitle("Well done!")
                 .setMessage("Your score is " + mScore)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setPositiveButton("OKAY!", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // End the activity
@@ -144,6 +144,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private void displayQuestion(final Question question) {
         // Set the text for the question text view and the four buttons
         mQuestionText.setText(question.getQuestion());
+
         mFirstAnswer.setText(question.getChoiceList().get(0));
         mSecondAnswer.setText(question.getChoiceList().get(1));
         mThirdAnswer.setText(question.getChoiceList().get(2));
@@ -170,6 +171,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                                           "666",
                                           "742"), 3);
 
-        return new QuestionBank(Arrays.asList(question1, question2, question3));
+        Question question4 = new Question("When Microsoft was founded?",
+                            Arrays.asList("1974",
+                                          "1975",
+                                          "1976",
+                                          "1977"), 1);
+
+        return new QuestionBank(Arrays.asList(question1, question2, question3, question4));
     }
 }
