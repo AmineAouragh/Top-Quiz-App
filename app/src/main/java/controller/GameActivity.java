@@ -33,6 +33,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private int mNumberOfQuestions;
     private int mScore;
 
+    public int getScore() {
+        return mScore;
+    }
+
     public static final String BUNDLE_EXTRA_SCORE = "BUNDLE_EXTRA_SCORE";
     public static final String BUNDLE_STATE_SCORE = "currentScore";
     public static final String BUNDLE_STATE_QUESTION = "currentQuestion";
@@ -89,6 +93,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             // Good answer
             Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
             mScore++;
+
         } else {
             // Wrong answer
             Toast.makeText(this, "Wrong answer!", Toast.LENGTH_SHORT).show();
