@@ -125,11 +125,36 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         return mEnableTouchEvents && super.dispatchTouchEvent(ev);
     }
 
+    private String message(int score) {
+        String msg;
+        switch(score) {
+            case 0:
+                msg =  "Sorry! Not your lucky day!";
+                break;
+            case 1:
+                msg =  "OUCH!!";
+                break;
+            case 2:
+                msg = "Average! You can do more than that.";
+                break;
+            case 3:
+                msg = "Nice job! Well Done!";
+                break;
+            case 4:
+                msg = "SUCCESS!!";
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + score);
+        }
+        
+        return msg;
+    }
+
     private void endGame() {
         // The score will be displayed to the user in a dialog box
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setTitle("Well done!")
+        builder.setTitle(message(mScore))
                 .setMessage("Your score is " + mScore)
                 .setPositiveButton("OKAY!", new DialogInterface.OnClickListener() {
                     @Override
