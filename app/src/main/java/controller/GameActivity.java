@@ -56,7 +56,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             mNumberOfQuestions = savedInstanceState.getInt(BUNDLE_STATE_QUESTION);
         } else {
             mScore = 0;
-            mNumberOfQuestions = 4;
+            mNumberOfQuestions = 5;
         }
 
         mEnableTouchEvents = true;
@@ -207,6 +207,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                                           "1976",
                                           "1977"), 1);
 
-        return new QuestionBank(Arrays.asList(question1, question2, question3, question4));
+        Question question5 = new Question("How many characters did Twitter originally restrict users to?",
+                            Arrays.asList("120",
+                                          "140",
+                                          "160",
+                                          "180"), 1);
+
+        return new QuestionBank(Arrays.asList(question1, question2, question3, question4, question5));
     }
 }
