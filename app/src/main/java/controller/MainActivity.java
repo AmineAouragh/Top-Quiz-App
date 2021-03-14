@@ -96,6 +96,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private String someText(int score) {
+        String msg = "";
+        if (score <= 2)
+            msg = "Your last score was " +score+ ", will you do better this time?";
+        else if (score >= 3)
+            msg = "Your last score was " +score+ ", you did a nice job!";
+        return msg;
+    }
+
     private void greetUser() {
         String firstname = mPreferences.getString(PREF_KEY_FIRSTNAME, null);
 
@@ -103,12 +112,13 @@ public class MainActivity extends AppCompatActivity {
             int score = mPreferences.getInt(PREF_KEY_SCORE, 0);
 
             String fulltext = "Welcome back, " + firstname
-                    + "!\nYour last score was " + score
-                    + ", will you do better this time?";
+                    + "!\n" + someText(score);
             mGreetingText.setText(fulltext);
             mNameInput.setText(firstname);
             mNameInput.setSelection(firstname.length());
             mPlayButton.setEnabled(true);
+        } else {
+            mPlayButton.setEnabled(false);
         }
     }
 }
