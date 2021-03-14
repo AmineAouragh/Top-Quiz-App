@@ -138,10 +138,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 msg = "Average! You can do more than that.";
                 break;
             case 3:
-                msg = "Nice job! Well Done!";
+                msg = "Nice job!";
                 break;
             case 4:
-                msg = "SUCCESS!!";
+                msg = "GREAT!!";
+                break;
+            case 5:
+                msg = "Well Done!!";
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + score);
